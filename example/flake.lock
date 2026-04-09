@@ -1,0 +1,96 @@
+{
+  "nodes": {
+    "myNixDerivedLib": {
+      "inputs": {
+        "nixpkgs": "nixpkgs",
+        "nuget-packageslock2nix": "nuget-packageslock2nix"
+      },
+      "locked": {
+        "path": "./MyNixDerivedLib",
+        "type": "path"
+      },
+      "original": {
+        "path": "./MyNixDerivedLib",
+        "type": "path"
+      },
+      "parent": []
+    },
+    "nix-nuget-feed": {
+      "locked": {
+        "lastModified": 1775767526,
+        "narHash": "sha256-WP5oCLy5ne9n1cGXyag5u9r+EhOPMmxryQTWwyHwQVY=",
+        "owner": "9Prestidigitator",
+        "repo": "nix-nuget-feed",
+        "rev": "af87955facfbcfa50f19903d580909e8c1dec9fd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "9Prestidigitator",
+        "repo": "nix-nuget-feed",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1775423009,
+        "narHash": "sha256-vPKLpjhIVWdDrfiUM8atW6YkIggCEKdSAlJPzzhkQlw=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "68d8aa3d661f0e6bd5862291b5bb263b2a6595c9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1775423009,
+        "narHash": "sha256-vPKLpjhIVWdDrfiUM8atW6YkIggCEKdSAlJPzzhkQlw=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "68d8aa3d661f0e6bd5862291b5bb263b2a6595c9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nuget-packageslock2nix": {
+      "inputs": {
+        "nixpkgs": [
+          "myNixDerivedLib",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1775266630,
+        "narHash": "sha256-LcFEKz93wHxqptnyyMEKTQ2bbYp29zxe1NWaid/X06s=",
+        "owner": "mdarocha",
+        "repo": "nuget-packageslock2nix",
+        "rev": "54b3a07723bb16223b3354ae7960ab6b0f17f792",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mdarocha",
+        "repo": "nuget-packageslock2nix",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "myNixDerivedLib": "myNixDerivedLib",
+        "nix-nuget-feed": "nix-nuget-feed",
+        "nixpkgs": "nixpkgs_2"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
