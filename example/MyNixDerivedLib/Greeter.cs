@@ -1,7 +1,3 @@
-/// <summary>
-/// This should be availabe on ExampleApp.cs after entering the development
-/// environment and setting the NuGet.Config properly.
-/// </summary>
 namespace MyNixDerivedLib;
 
 /// <summary>
