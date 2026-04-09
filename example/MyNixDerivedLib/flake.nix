@@ -21,14 +21,18 @@
       pname = "MyNixDerivedLib";
       version = "1.0.0";
       src = ./.;
-      projectFile = "MyNixDerivedLib.csproj";
-      nugetDeps = nuget-packageslock2nix.lib {
-        name = "MyNixDerivedLib";
-        lockfiles = [./packages.lock.json];
-      };
+
       dotnet-sdk = pkgs.dotnetCorePackages.sdk_10_0;
       dotnet-runtime = pkgs.dotnetCorePackages.runtime_10_0;
+
+      projectFile = "MyNixDerivedLib.csproj";
       packNupkg = true;
+
+      nugetDeps = nuget-packageslock2nix.lib {
+        name = "MyNixDerivedLib";
+        inherit system;
+        lockfiles = [./packages.lock.json];
+      };
     };
   };
 }
