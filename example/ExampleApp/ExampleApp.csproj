@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+  </PropertyGroup>
+
+  <!--
+    Replace with your own nix-derived nuget package reference.
+    Once NIX_NUGET is set in your dev shell, dotnet restore will
+    resolve this from the nix store feed automatically.
+  -->
+  <ItemGroup>
+    <PackageReference Include="MyNixDerivedLib" Version="1.0.0" />
+  </ItemGroup>
+</Project>
