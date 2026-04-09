@@ -31,8 +31,7 @@
     in
       pkgs.mkShell (shellArgs
         // {
-          env =
-            (args.env or {}) // {NIX_NUGET = localNugetFeed;};
+          env = (args.env or {}) // {NIX_NUGET = localNugetFeed;};
         });
   };
 }
