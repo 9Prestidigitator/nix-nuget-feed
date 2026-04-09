@@ -36,7 +36,8 @@ You can now create a nix-nuget-feed development shell via the single library or 
 ### Library
 
 ```nix
-devshells.default = inputs.nix-nuget-feed.lib {
+devShells.default = inputs.nix-nuget-feed.lib {
+  inherit pkgs;
   nugetPackages = [
     inputs.myDotnetLib1.packages.${system}.default
     inputs.myDotnetLib2.packages.${system}.default
@@ -53,9 +54,9 @@ let
     inherit system;
     overlays = [ inputs.nix-nuget-feed.overlays.default ];
   }
-in 
+in
 {
-  devshells.default = pkgs.mkShell {
+  devShells.default = pkgs.mkShell {
     nugetPackages = [
       inputs.myDotnetLib1.packages.${system}.default
       inputs.myDotnetLib2.packages.${system}.default
@@ -64,6 +65,10 @@ in
   }
 }
 ```
+
+## How it works
+
+Each nix-derived nuget package built with `packNupkg=true` stores its extracted contents in `$out/share/nuget/packages/<pname>/<version>/`. This library collects those directories, reads the package name from each `.nuspec` file to preserve original casing, and repacks them into proper `.nupkg` zip archives inside a single nix store derivation. The path to that derivation is then exposed as `NIX_NUGET` in your development shell, which NuGet reads as a local package source feed. When you run `dotnet restore`, NuGet resolves packages from this feed and extracts them into your global cache (`~/.nuget/packages`) as normal.
 
 ## Inspirations
 
