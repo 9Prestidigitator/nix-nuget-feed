@@ -21,7 +21,17 @@
       nugetPackages = [
         myNixDerivedLib.packages.${system}.default
       ];
-      packages = [pkgs.dotnet-sdk_10];
+      packages = with pkgs; [
+        dotnet-sdk_10
+        nuget
+
+        omnisharp-roslyn
+        netcoredbg
+        csharpier
+
+        nixd
+        alejandra
+      ];
     };
   };
 }

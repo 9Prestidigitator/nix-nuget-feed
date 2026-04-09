@@ -4,5 +4,6 @@
     <PackageId>MyNixDerivedLib</PackageId>
     <Version>1.0.0</Version>
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 </Project>
