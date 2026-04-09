@@ -66,9 +66,25 @@ in
 }
 ```
 
+You should now be able to build your dotnet project that relies on a inputed nix-derived nuget package.
+
+## Example
+
+You can try with the included example:
+
+```bash
+cd ./example
+nix develop .
+dotnet build ./ExampleApp
+```
+
+This will take the `MyNixDerivedLib` flake and provide it as a valid nuget package that is recognized by dotnet.
+
 ## How it works
 
 Each nix-derived nuget package built with `packNupkg=true` stores its extracted contents in `$out/share/nuget/packages/<pname>/<version>/`. This library collects those directories, reads the package name from each `.nuspec` file to preserve original casing, and repacks them into proper `.nupkg` zip archives inside a single nix store derivation. The path to that derivation is then exposed as `NIX_NUGET` in your development shell, which NuGet reads as a local package source feed. When you run `dotnet restore`, NuGet resolves packages from this feed and extracts them into your global cache (`~/.nuget/packages`) as normal.
+
+This repository exists to reduce boiler-plate, the steps are pretty simple but I use it a lot for real C#/Nix projects.
 
 ## Inspirations
 
