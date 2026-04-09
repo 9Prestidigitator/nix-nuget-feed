@@ -18,9 +18,12 @@
   in {
     devShells.${system}.default = nix-nuget-feed.lib {
       inherit pkgs;
+
+      # This is where you import your nuget derivations
       nugetPackages = [
         myNixDerivedLib.packages.${system}.default
       ];
+
       packages = with pkgs; [
         dotnet-sdk_10
         nuget
