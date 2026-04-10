@@ -94,4 +94,4 @@ This repository exists to reduce boiler-plate, the steps are pretty simple but I
 
 ## Inspirations
 
-- [nuget-packageslock2nix](https://github.com/mdarocha/nuget-packageslock2nix): A great way to get your nuget.org packages into the nix store.
+- [nuget-packageslock2nix](https://github.com/mdarocha/nuget-packageslock2nix): A great way to get your nuget packages into the nix store.
