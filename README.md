@@ -2,6 +2,12 @@
 
 This nix library allows users to create a development shell containing nix-derived nuget packages.
 
+## What problem this solves
+
+Imagine you have a .NET project A that is a dependency of another project B via NuGet. If you have buildDotnetModule derivations for both, the solution is straightforward — give A's derivation `packNupkg = true` and pass it to B's `projectReferences`. `nix build .#B` works perfectly.
+However this only works when building through nix. There is no way to use `dotnet build`, `dotnet restore`, `dotnet run`, etc. and have them see those same nix-derived nuget packages. This means your local dotnet tooling and your nix derivations are operating on different package graphs, this can hide bugs and makes iterative development painful.
+`nix-nuget-feed` solves this by repacking your nix-derived nuget packages and exposing them as a local NuGet feed in your dev shell. The packages your local dotnet commands restore from are the exact same derivations your nix build uses.
+
 ## Setup
 
 You must add this line to your solution/projects `NuGet.Config` file:
